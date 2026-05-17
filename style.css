@@ -13,7 +13,14 @@ html {
 }
 body {
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
   line-height: 1.6;
   background: var(--bg);
   color: var(--text);
@@ -343,7 +350,12 @@ button,
 .modal-download,
 .modal-secondary,
 .search-wrap input {
-  transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+  transition:
+    background-color 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
 }
 
 /* Theme switch (icon only) placed at nav right — refined visuals */
@@ -843,7 +855,10 @@ body.modal-open {
   padding: 10px 16px;
   border-radius: 14px;
   cursor: pointer;
-  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
 }
 .modal-secondary:hover,
 .modal-secondary:focus-visible {

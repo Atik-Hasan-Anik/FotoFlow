@@ -16,9 +16,36 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalLikes = document.getElementById("modal-likes");
   const modalDescription = document.getElementById("modal-description");
 
-  const categories = ["Landscape", "Portrait", "Travel", "Food", "Architecture", "Nature", "Cityscape", "Minimal"];
-  const locations = ["Paris", "Tokyo", "New York", "London", "Barcelona", "Bali", "Seoul", "Cape Town"];
-  const photographers = ["Ava", "Liam", "Olivia", "Noah", "Emma", "Mason", "Sophia", "Ethan"];
+  const categories = [
+    "Landscape",
+    "Portrait",
+    "Travel",
+    "Food",
+    "Architecture",
+    "Nature",
+    "Cityscape",
+    "Minimal",
+  ];
+  const locations = [
+    "Paris",
+    "Tokyo",
+    "New York",
+    "London",
+    "Barcelona",
+    "Bali",
+    "Seoul",
+    "Cape Town",
+  ];
+  const photographers = [
+    "Ava",
+    "Liam",
+    "Olivia",
+    "Noah",
+    "Emma",
+    "Mason",
+    "Sophia",
+    "Ethan",
+  ];
   const moods = [
     "soft morning light",
     "moody evening tones",
@@ -57,12 +84,15 @@ document.addEventListener("DOMContentLoaded", function () {
       applyTheme(saved);
       return;
     }
-    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
     applyTheme(prefersDark ? "dark" : "light");
   }
 
   function toggleTheme() {
-    const current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    const current =
+      root.getAttribute("data-theme") === "dark" ? "dark" : "light";
     const next = current === "dark" ? "light" : "dark";
     applyTheme(next);
     try {
@@ -95,7 +125,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const card = document.createElement("article");
     card.className = "card hidden";
     card.dataset.id = details.id;
-    card.dataset.search = `${details.title} ${details.category} ${details.location} ${details.photographer} ${details.tags}`.toLowerCase();
+    card.dataset.search =
+      `${details.title} ${details.category} ${details.location} ${details.photographer} ${details.tags}`.toLowerCase();
 
     const img = document.createElement("img");
     img.src = details.imageUrl;
@@ -170,9 +201,13 @@ document.addEventListener("DOMContentLoaded", function () {
     heart.className = "like-burst";
     heart.textContent = "❤";
     card.appendChild(heart);
-    heart.addEventListener("animationend", () => {
-      heart.remove();
-    }, { once: true });
+    heart.addEventListener(
+      "animationend",
+      () => {
+        heart.remove();
+      },
+      { once: true },
+    );
   }
 
   function handleLike(event) {
@@ -207,7 +242,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     gallery.appendChild(fragment);
     requestAnimationFrame(() => {
-      gallery.querySelectorAll(".card.hidden").forEach((card) => card.classList.remove("hidden"));
+      gallery
+        .querySelectorAll(".card.hidden")
+        .forEach((card) => card.classList.remove("hidden"));
     });
   }
 
@@ -215,7 +252,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!gallery) return;
     const normalized = query.trim().toLowerCase();
     cards.forEach((card) => {
-      card.style.display = normalized && !card.dataset.search.includes(normalized) ? "none" : "inline-block";
+      card.style.display =
+        normalized && !card.dataset.search.includes(normalized)
+          ? "none"
+          : "inline-block";
     });
   }
 
@@ -260,11 +300,15 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     if (navigator.share) {
       navigator.share(data).catch(() => {
-        navigator.clipboard.writeText(url).then(() => window.alert("Link copied to clipboard."));
+        navigator.clipboard
+          .writeText(url)
+          .then(() => window.alert("Link copied to clipboard."));
       });
       return;
     }
-    navigator.clipboard.writeText(url).then(() => window.alert("Link copied to clipboard."));
+    navigator.clipboard
+      .writeText(url)
+      .then(() => window.alert("Link copied to clipboard."));
   }
 
   initializeTheme();
