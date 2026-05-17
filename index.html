@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FotoFlow</title>
+    <meta name="description" content="FotoFlow is a modern photo gallery with theme toggle, infinite scroll, and polished image previews.">
+    <meta name="theme-color" content="#111827">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="brand">
+            <a href="index.html" class="brand-link">FotoFlow</a>
+        </div>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <button id="theme-toggle" aria-label="Toggle light and dark theme" aria-pressed="false">
+                <span class="switch" aria-hidden="true">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path
+                            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                    <span class="switch-knob" aria-hidden="true"></span>
+                </span>
+            </button>
+        </nav>
+        <div class="header-actions">
+            <label class="search-wrap">
+                <span class="sr-only">Search photos</span>
+                <input id="search-input" type="search" placeholder="Search free photos" />
+            </label>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Discover stunning imagery</p>
+                <h1>Beautiful photos for every project</h1>
+                <p class="hero-text">Browse a curated collection of photos designed to feel like a modern
+                    Unsplash-inspired landing page.</p>
+            </div>
+        </section>
+
+        <section class="gallery-wrap">
+            <div id="gallery" class="gallery" aria-live="polite"></div>
+            <div id="infinite-sentinel" class="sentinel" aria-hidden="true"></div>
+        </section>
+    </main>
+
+    <div id="image-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="modal-panel">
+            <button id="modal-close" type="button" class="modal-close" aria-label="Close details">×</button>
+            <div class="modal-content">
+                <div class="modal-preview">
+                    <img id="modal-image" src="" alt="" />
+                </div>
+                <div class="modal-copy">
+                    <div class="modal-copy-header">
+                        <h2 id="modal-title"></h2>
+                        <button id="modal-share" class="modal-share" type="button" aria-label="Share image">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M17 8.5a2.5 2.5 0 1 0-2.4-2.49L8.91 9.65a2.5 2.5 0 1 0 0 4.7l5.68 3.64A2.5 2.5 0 1 0 17 15.5l-5.67-3.64c.13-.2.21-.44.21-.69s-.08-.48-.21-.68L17 8.5z"
+                                    fill="currentColor" />
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="modal-label"><strong>Location</strong> <span id="modal-location"></span></p>
+                    <p class="modal-label"><strong>Type</strong> <span id="modal-category"></span></p>
+                    <p class="modal-label"><strong>Likes</strong> <span id="modal-likes"></span></p>
+                    <p id="modal-description"></p>
+                    <div class="modal-actions">
+                        <button id="modal-download" class="modal-download" type="button">Download</button>
+                        <button id="modal-close-alt" class="modal-secondary" type="button">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
